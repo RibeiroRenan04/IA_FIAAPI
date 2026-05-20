@@ -2,10 +2,10 @@ using SimplificadorLinguagem.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ── Porta dinâmica (Railway injeta a variável PORT) ───────────────────────────
-var railwayPort = Environment.GetEnvironmentVariable("PORT");
-if (!string.IsNullOrEmpty(railwayPort))
-    builder.WebHost.UseUrls($"http://0.0.0.0:{railwayPort}");
+// ── Porta dinâmica (Render injeta a variável PORT) ──────────────────────────
+var renderPort = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(renderPort))
+    builder.WebHost.UseUrls($"http://0.0.0.0:{renderPort}");
 
 // ── OpenAI HTTP Client ────────────────────────────────────────────────────────
 builder.Services.AddHttpClient("OpenAI", client =>
